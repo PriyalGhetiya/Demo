@@ -86,13 +86,14 @@ class RegisterController extends Controller
             'parent_title' => 'user_profile',
             'image' => $data['image']
         ]);
-        // $this->store_image($data['image']);
+
+        // $this->store_image($file = Input::file('image'));
         return $user;
     }
 
     public function store_image($name){
-        $destination = '../../public/assets/demo';
-        // $name->move($destination,$name);
+        $destination = '/assets/demo';
+        $name->move(public_path().$destination,$name);
         // echo $ext = $name->getClientOriginalExtension();
 
 // exit();

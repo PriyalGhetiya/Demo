@@ -40,4 +40,8 @@ class User extends Authenticatable
     public function image(){
         return $this->hasOne('App\Images','parent_id','id')->where('parent_title','user_profile');
     }
+
+    public function role(){
+        return $this->hasOne('Spatie\Permission\Models\Role','id','role_id') ;
+    }
 }
