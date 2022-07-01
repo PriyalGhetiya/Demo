@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'fname','lname', 'email', 'password', 'role_id' , 'date'
     ];
 
     /**
@@ -36,4 +36,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function image(){
+        return $this->hasOne('App\Images','parent_id','id')->where('parent_title','user_profile');
+    }
 }
